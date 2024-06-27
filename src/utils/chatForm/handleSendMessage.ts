@@ -15,15 +15,13 @@ const handleSendMessage = async (
 
     if (!tokenFCM) return;
 
-    const { VITE_NOTIFY_PATH } = import.meta.env;
-
     const data = {
       token: tokenFCM,
       title: displayName,
       body: message,
     };
 
-    fetch(VITE_NOTIFY_PATH, {
+    fetch(import.meta.env.VITE_NOTIFY_PATH, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
